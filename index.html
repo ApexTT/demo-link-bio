@@ -8,7 +8,7 @@
     
     <style>
         :root {
-            --primary-color: #25D366; /* Verde WhatsApp por defecto */
+            --primary-color: #25D366; 
             --bg-color: #f4f4f9;
             --card-bg: #ffffff;
             --text-color: #333333;
@@ -31,217 +31,156 @@
 
         .container {
             width: 100%;
-            max-width: 480px; /* Ancho típico de un celular */
+            max-width: 480px; 
             padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        /* 1. PERFIL */
-        .profile {
-            text-align: center;
-        }
-
+        /* PERFIL */
+        .profile { text-align: center; }
         .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
+            width: 100px; height: 100px;
+            border-radius: 50%; object-fit: cover;
             border: 3px solid var(--primary-color);
             margin-bottom: 10px;
         }
-
-        .profile h1 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .profile p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
+        .profile h1 { font-size: 1.5rem; margin-bottom: 5px; }
+        .profile p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
 
         /* Redes Sociales */
         .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 10px;
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 10px;
+        }
+        .social-icon {
+            display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px;
+            background-color: var(--card-bg); color: var(--text-color);
+            border-radius: 50%; text-decoration: none; font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.2s;
+        }
+        .social-icon:active { transform: scale(0.9); }
+
+        /* TASA DEL DÍA */
+        .rate-card {
+            background: var(--card-bg); padding: 15px; border-radius: var(--radius);
+            text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid #1a237e; font-size: 1.1rem;
         }
 
-        .social-icon {
+        /* MÉTODOS DE PAGO */
+        .links-section { display: flex; flex-direction: column; gap: 15px; }
+        .btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 16px; border-radius: var(--radius);
+            text-align: center; text-decoration: none; font-weight: bold;
+            cursor: pointer; border: none; transition: transform 0.1s; font-size: 1.1rem;
+        }
+        .btn:active { transform: scale(0.98); }
+        .btn-whatsapp { background-color: var(--primary-color); color: white; }
+        
+        .payment-card {
+            background: var(--card-bg); padding: 15px; border-radius: var(--radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 10px;
+        }
+        .payment-card h3 { text-align: center; margin-bottom: 10px; font-size: 1.1rem; }
+        .btn-outline {
+            background: transparent; border: 2px solid #ddd; color: var(--text-color);
+            justify-content: flex-start; font-weight: normal;
+        }
+
+        /* NUEVO: CAJA DE PAGO MÓVIL DESGLOSADA */
+        .pago-movil-box {
+            border: 2px solid #ddd;
+            border-radius: var(--radius);
+            padding: 10px 15px;
+            background-color: #fafafa;
+        }
+        .pago-movil-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pm-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .pm-row:last-child {
+            border-bottom: none;
+        }
+        .pm-data {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.95rem;
+        }
+        .pm-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .pm-value {
+            font-weight: bold;
+            color: #333;
+        }
+        .btn-copy-small {
+            background: #e0e0e0;
+            border: none;
+            border-radius: 8px;
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            color: #333;
+            cursor: pointer;
+            transition: 0.2s;
         }
-
-        .social-icon:active {
+        .btn-copy-small:active {
+            background: var(--primary-color);
+            color: white;
             transform: scale(0.9);
         }
 
-        /* 2. TASA DEL DÍA */
-        .rate-card {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: var(--radius);
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 5px solid #1a237e; /* Azul BCV */
-            font-size: 1.1rem;
-        }
-
-        /* 3. MÉTODOS DE PAGO Y CONTACTO */
-        .links-section {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 16px;
-            border-radius: var(--radius);
-            text-align: center;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.1s;
-            font-size: 1.1rem;
-        }
-
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        .btn-whatsapp {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .payment-card {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .payment-card h3 {
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #ddd;
-            color: var(--text-color);
-            justify-content: flex-start; /* Alinear a la izquierda para datos */
-            font-weight: normal;
-        }
-
-        /* 4. CATÁLOGO CONTINUO */
-        .catalog {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .catalog h3 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Dos columnas */
-            gap: 15px;
-        }
-
+        /* CATÁLOGO */
+        .catalog { display: flex; flex-direction: column; gap: 15px; }
+        .catalog h3 { text-align: center; margin-bottom: 10px; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .product-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 12px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
+            background: var(--card-bg); border-radius: var(--radius); padding: 12px;
+            text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between;
         }
-
         .product-card img {
-            width: 100%;
-            height: auto;
-            max-height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            width: 100%; height: auto; max-height: 120px; object-fit: cover;
+            border-radius: 8px; margin-bottom: 10px;
         }
+        .product-card h4 { font-size: 0.9rem; margin-bottom: 5px; color: #555; }
+        .price-usd { font-weight: bold; color: var(--primary-color); font-size: 1.1rem; }
 
-        .product-card h4 {
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        .price-usd {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-
-        /* Alerta visual (Toast) */
+        /* Toast */
         .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #333;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: opacity 0.3s;
-            z-index: 1000;
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: #333; color: white; padding: 10px 20px; border-radius: 20px;
+            font-size: 0.9rem; transition: opacity 0.3s; z-index: 1000;
         }
-
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+        .hidden { opacity: 0; pointer-events: none; }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="profile">
-            <img src="https://via.placeholder.com/100" alt="Logo de la tienda" class="profile-img">
-            
+            <img src="logo.jpg" alt="Logo de la tienda" class="profile-img">
             <h1>[Nombre del Negocio]</h1>
-            <p>[Breve descripción de lo que venden o eslogan del negocio]</p>
+            <p>[Breve descripción del negocio]</p>
 
             <div class="social-links">
                 <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
                 <a href="#" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             </div>
         </header>
 
@@ -251,65 +190,90 @@
         </div>
 
         <section class="links-section">
-            <a href="https://wa.me/584000000000?text=Hola,%20vengo%20de%20su%20Link%20y%20quiero%20comprar" class="btn btn-whatsapp" target="_blank">
+            <a href="https://wa.me/584000000000" class="btn btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
             </a>
 
             <div class="payment-card">
                 <h3>Métodos de Pago</h3>
                 
-                <button class="btn btn-outline" onclick="copyToClipboard('[correo@zelle.com]', '¡Zelle copiado!')">
-                    <i class="fas fa-money-bill-wave"></i> Zelle: [correo@zelle.com]
+                <button class="btn btn-outline" onclick="copyToClipboard('correo@zelle.com', '¡Zelle copiado!')">
+                    <i class="fas fa-money-bill-wave"></i> Zelle: [correo]
                 </button>
                 
-                <button class="btn btn-outline" onclick="copyToClipboard('0400-0000000\nJ-000000000\nBanco', '¡Datos copiados!')">
-                    <i class="fas fa-university"></i> Pago Móvil (Copiar Datos)
-                </button>
-            </div>
+                <div class="pago-movil-box">
+                    <div class="pago-movil-title">
+                        <i class="fas fa-university"></i> Pago Móvil
+                    </div>
+                    
+                    <div class="pm-row">
+                        <div class="pm-data">
+                            <span class="pm-label">Banco</span>
+                            <span class="pm-value">Banesco (0134)</span> 
+                        </div>
+                        <button class="btn-copy-small" onclick="copyToClipboard('0134', '¡Banco copiado!')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <div class="pm-row">
+                        <div class="pm-data">
+                            <span class="pm-label">Cédula / RIF</span>
+                            <span class="pm-value">V-12345678</span>
+                        </div>
+                        <button class="btn-copy-small" onclick="copyToClipboard('V12345678', '¡Cédula copiada!')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <div class="pm-row">
+                        <div class="pm-data">
+                            <span class="pm-label">Teléfono</span>
+                            <span class="pm-value">0414-1234567</span>
+                        </div>
+                        <button class="btn-copy-small" onclick="copyToClipboard('04141234567', '¡Teléfono copiado!')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                </div>
         </section>
 
         <section class="catalog">
-            <h3>🔥 Nuestros Productos Estrella</h3>
+            <h3>🔥 Nuestros Productos</h3>
             <div class="product-grid">
-                
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Producto 1">
+                    <img src="img1.jpg" alt="Producto 1">
                     <h4>[Nombre 1]</h4>
                     <p class="price-usd">$[Precio]</p>
                 </div>
-
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Producto 2">
+                    <img src="img2.jpg" alt="Producto 2">
                     <h4>[Nombre 2]</h4>
                     <p class="price-usd">$[Precio]</p>
                 </div>
-                
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Producto 3">
+                    <img src="img3.jpg" alt="Producto 3">
                     <h4>[Nombre 3]</h4>
                     <p class="price-usd">$[Precio]</p>
                 </div>
-                
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Producto 4">
+                    <img src="img4.jpg" alt="Producto 4">
                     <h4>[Nombre 4]</h4>
                     <p class="price-usd">$[Precio]</p>
                 </div>
-                
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Producto 5">
+                    <img src="img5.jpg" alt="Producto 5">
                     <h4>[Nombre 5]</h4>
                     <p class="price-usd">$[Precio]</p>
                 </div>
-
             </div>
         </section>
     </div>
 
-    <div id="toast" class="toast hidden">¡Copiado al portapapeles!</div>
+    <div id="toast" class="toast hidden">¡Copiado!</div>
 
     <script>
-        // Copiar y alerta
         function copyToClipboard(text, successMessage) {
             navigator.clipboard.writeText(text).then(() => {
                 showToast(successMessage);
@@ -324,10 +288,9 @@
             toast.classList.remove('hidden');
             setTimeout(() => {
                 toast.classList.add('hidden');
-            }, 2500);
+            }, 2000); // Lo bajé a 2 segundos para que se oculte más rápido al copiar varios
         }
 
-        // Tasa BCV Pública
         async function fetchBcvRate() {
             try {
                 const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial'); 
